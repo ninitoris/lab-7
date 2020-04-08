@@ -57,6 +57,33 @@ window.onload = function () {
         countDownDiv.style.margin = '20% 0 0 0';
         countDownDiv.style.width = '100%';
         countDownDiv.style.fontSize = '10em';
+
+        let muteButton = document.createElement('muteButton');
+        muteButton.style.position = 'absolute';
+        muteButton.style.border = '0px solid red';
+        muteButton.innerHTML = `<img src="img/speak.png" width="100px" id="muteIcon">`;
+        muteButton.style.top = '0';
+        muteButton.style.right = '0';
+        muteButton.style.textAlign = 'center';
+        document.getElementById('playField').append(muteButton);
+        muteButton.addEventListener('click', function() {
+            if (bgMusic.volume===0){
+                bgMusic.volume = 0.1;
+            }
+            else{
+                bgMusic.volume = 0;
+            }
+            if (endMusic.volume===0){
+                endMusic.volume = 0.1;
+            }
+            else{
+                endMusic.volume = 0;
+            }
+           
+        });
+
+
+
         let startingTimer = setInterval(function() {
             countDownDiv.innerHTML = countDown;
             countDown--;
